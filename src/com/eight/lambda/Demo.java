@@ -6,7 +6,8 @@ import java.util.function.Consumer;
 
 public class Demo {
 	public void test(List<String> stringList) {
-		// anonymous class
+		//1 anonymous class
+		System.out.println("anonymous class print:");
 		stringList.forEach(new Consumer<String>() {
 
 			@Override
@@ -14,9 +15,16 @@ public class Demo {
 				System.out.println(arg0);
 			}
 		});
-		// lambda expression
+		//2 lambda expression
+		System.out.println("lambda expression print:");
 		stringList.forEach(str->System.out.println(str));
-		//method reference
+		
+		// 2.1 sort by lambda expression
+		stringList.sort((str1, str2)-> {
+			return str1.compareTo(str2);
+		});
+		System.out.println("print after sort");
+		//3 method reference
 		stringList.forEach(System.out::println);
 	}
 
