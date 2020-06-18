@@ -59,6 +59,11 @@ public class Demo {
 		System.out.println();
 		strList2.parallelStream().forEach(System.out::println);
 		
+		System.out.println("use REDUCE of STREAM to get max element");
+		List<Integer> intL = Arrays.asList(21,4,2,7,5,23,8,9,0,20);
+		Integer max = intL.stream().reduce((a,b)-> a>b? a:b).get();
+		System.out.println(max);
+		
 		
 		
 	}

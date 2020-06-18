@@ -25,7 +25,7 @@ public class Demo {
 				System.out.print(str);
 		});
 		System.out.println();
-		stream = Arrays.stream(data);
+		stream = Arrays.stream(data); //long l = stream.count(); System.out.println(l);
 		Stream<String> stream2 = stream.flatMap(strs->Arrays.stream(strs));
 		stream2.forEach(System.out::print);
 		
