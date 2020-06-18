@@ -47,11 +47,17 @@ public class Demo {
 		nameList.forEach(System.out::println);
 		System.out.println();
 		///////////////////////////////////////////////////////////////////////////
+		System.out.println("using PARALLEL STREAM to go through each element parallelly");
 		IntStream intList1 =   IntStream.rangeClosed(1,10);
 		intList1.forEach(System.out::println);
 		System.out.println();
 		IntStream intList2 = IntStream.rangeClosed(1,10);
 		intList2.parallel().forEach(System.out::println);
+		System.out.println();
+		List<String> strList2 = Arrays.asList("a","b","c","d","e","f","g","h","i","j");
+		strList2.forEach(System.out::println);
+		System.out.println();
+		strList2.parallelStream().forEach(System.out::println);
 		
 		
 		
