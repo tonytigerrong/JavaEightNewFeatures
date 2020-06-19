@@ -1,5 +1,6 @@
 package com.eight.time;
 
+import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -113,6 +114,16 @@ public class Demo {
 		} catch (DateTimeParseException e) {
 			e.printStackTrace();
 		}
+		
+		// Timestamp <=> LocalDateTime
+		LocalDate now = LocalDate.now();
+		   // localdatetime to timestamp
+		Timestamp timestamp = Timestamp.valueOf(now.atStartOfDay());
+		System.out.println("LocalDate.now():"+now);
+		System.out.println("Timestamp: "+timestamp);
+		   // timestamp to localdatetime
+		LocalDate convertFromTimeStamp = timestamp.toLocalDateTime().toLocalDate();
+		System.out.println("Conver From Timestamp: "+convertFromTimeStamp);
 		
 		
 	}
