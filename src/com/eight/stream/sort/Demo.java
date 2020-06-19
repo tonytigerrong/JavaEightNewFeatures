@@ -2,7 +2,10 @@ package com.eight.stream.sort;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Demo {
@@ -30,9 +33,39 @@ public class Demo {
 											 )
 									  .collect(Collectors.toList());
 		usersSorted.stream().forEach(System.out::println);
-				
+		
+		// Map sort by Key of map
+		Map<String, Integer> unsortMap = null;
+		unsortMap = setMap(unsortMap);
+		Map<String, Integer> sortedMap = unsortMap.entrySet()
+				 .stream()
+				 .sorted(Map.Entry.comparingByKey())
+				 .collect(
+						 Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue,newValue)->oldValue, LinkedHashMap::new)
+				         );
+		System.out.println(sortedMap);
+		// Map sort by value of map
+		Map<String, Integer> unsortMap1 = null;
+		unsortMap1 = setMap(unsortMap1);
+		Map<String, Integer> sortedMap1 = unsortMap1.entrySet()
+							 .stream()
+							 .sorted(Map.Entry.comparingByValue())
+							 .collect(
+									 Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+											 (oldValue,newValue)->oldValue, LinkedHashMap::new)
+								    );
+		System.out.println(sortedMap1);
 	}
 	
+	
+	public static Map<String, Integer> setMap(Map<String, Integer> map){
+		map = new HashMap<>();
+		map.put("a",10);map.put("g",6);map.put("b",9);map.put("d",7);
+		map.put("h",7);map.put("c",8);map.put("i",3);
+		map.put("e",4);map.put("j",2);map.put("f",5);
+		map.put("k",1);
+		return map;
+	}
 	static class User{
 		private String name;
 		private int age;
