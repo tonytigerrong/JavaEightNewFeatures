@@ -9,6 +9,7 @@ import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 
@@ -89,7 +90,7 @@ public class Demo {
 		System.out.println(localDateTime);
 		System.out.println(formatter.format(localDateTime));
 
-		//Instant ZoneDateTime
+		// Instant ZoneDateTime
 		Instant instant = Instant.now();
 		ZonedDateTime asiaDateTime = instant.atZone(ZoneId.of("Asia/Tokyo"));
 		System.out.println(asiaDateTime);
@@ -99,5 +100,21 @@ public class Demo {
 		System.out.println(atlanticDateTime);
 		ZonedDateTime pacificDateTime = instant.atZone(ZoneId.of("Canada/Pacific"));
 		System.out.println(pacificDateTime);
+
+		// toLocalDate
+		LocalDateTime local = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+		System.out.println("System Default ZoneId:" + ZoneId.systemDefault());
+		System.out.println(local);
+
+		// DateTimeParseException
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("d-MMM-yyyy", Locale.CANADA);
+		try {
+			LocalDate localDate5 = LocalDate.parse("8-Abc-2015", dtf);
+		} catch (DateTimeParseException e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
+
 }
