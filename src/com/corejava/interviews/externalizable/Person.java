@@ -36,17 +36,17 @@ public class Person implements Externalizable {
 	@Override
 	public void readExternal(ObjectInput arg0) throws IOException, ClassNotFoundException {
 		// TODO Auto-generated method stub
-		this.name = arg0.readUTF();
-		this.age = arg0.readInt();
-		this.address = (Address) arg0.readObject();
+//		this.name = arg0.readUTF();
+//		this.age = arg0.readInt();
+//		this.address = (Address) arg0.readObject();
 		
 	}
 	@Override
 	public void writeExternal(ObjectOutput arg0) throws IOException {
 		// TODO Auto-generated method stub
-		arg0.writeUTF(this.name);
-		arg0.writeInt(this.age);
-		arg0.writeObject(this.address);
+//		arg0.writeUTF(this.name);
+//		arg0.writeInt(this.age);
+//		arg0.writeObject(this.address);
 	}
 	
 }

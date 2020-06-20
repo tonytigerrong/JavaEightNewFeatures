@@ -16,8 +16,8 @@ public class Test {
 		// TODO Auto-generated method stub
 		Person person = new Person();
 		Address address = new Address();
-		address.setApt("unit2"); address.setStreet("my street name"); address.setCity("New Yorks"); address.setCountry("USA");
-		person.setName("David"); person.setAge(21); person.setAddress(address);
+		address.setApt("unit3"); address.setStreet("my street name3"); address.setCity("New Yorks"); address.setCountry("USA");
+		person.setName("Smith"); person.setAge(24); person.setAddress(address);
 		
 		FileOutputStream fos = new FileOutputStream("./person.externalizable");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);

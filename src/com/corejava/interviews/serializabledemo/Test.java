@@ -19,7 +19,7 @@ public class Test {
 		
 		FileOutputStream fos = new FileOutputStream("./person.serializable");
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(person);
+		oos.writeObject(person); // transient fields of instance will not serialized 
 		oos.flush();
 		oos.close();
 		System.out.println("write to file: "+person);
