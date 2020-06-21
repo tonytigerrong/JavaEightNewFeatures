@@ -20,7 +20,7 @@ public class StartThreadAtSpecificTime {
 
 	public static void main(String[] args) {
 //		System.out.println(test());
-		// TODO Auto-generated method stub
+
 		/**
 		 * need start task at 2:30
 		 * Timer

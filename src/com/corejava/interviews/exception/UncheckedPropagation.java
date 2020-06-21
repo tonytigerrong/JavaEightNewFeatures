@@ -22,6 +22,10 @@ public class UncheckedPropagation {
 		c();
 	}
 	private static void c(){
+		/**
+		 * no need to manully maintain exception chain for each function signature
+		 * Unchecked exception will popped up (properaged)
+		 */
 		int i = 10/0; //unchecked exception propagation 
 	}
 	

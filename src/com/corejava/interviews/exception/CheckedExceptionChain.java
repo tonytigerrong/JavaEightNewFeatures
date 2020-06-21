@@ -5,7 +5,11 @@ import java.io.IOException;
 public class CheckedExceptionChain {
 	public static void main(String[] args) throws IOException{
 		CheckedExceptionChain demo = new CheckedExceptionChain();
-		demo.A();
+		try{
+			demo.A();
+		}catch(Exception e){
+			System.out.println("exception catched");
+		}
 	}
 	private static void A() throws IOException{
 		B();
