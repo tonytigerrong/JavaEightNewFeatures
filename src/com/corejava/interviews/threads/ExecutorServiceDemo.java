@@ -15,6 +15,7 @@ public class ExecutorServiceDemo {
 		demo.test2();
 		demo.test3();
 	}
+	
 	public void test3(){
 		Callable<Integer> callableT1 = ()->{
 			try{
