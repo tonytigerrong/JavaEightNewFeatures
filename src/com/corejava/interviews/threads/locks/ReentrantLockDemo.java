@@ -5,21 +5,23 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.IntStream;
 
-public class RentrantLockDemo {
+public class ReentrantLockDemo {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ExecutorService es = Executors.newFixedThreadPool(2);
 		ReentrantLock lock = new ReentrantLock();
+		/**
+		 * lock using path: lock ->DateDemo(data) -> MyRunnable(run) 
+		 */
 		DataDemo data = new DataDemo(lock);
 		MyRunnable run = new MyRunnable(data);
-		Thread t = new Thread(run);
-		t.start();
-		System.out.println("Locked: " + lock.isLocked());
-	    System.out.println("Held by me: " + lock.isHeldByCurrentThread());
-	    boolean locked = lock.tryLock();
+		es.submit(run);	 // thread is runing and lock is using now for 1 sec
+		System.out.println("Locked: " + lock.isLocked()); // should be true
+	    System.out.println("Held by me: " + lock.isHeldByCurrentThread()); // so should be false
+	    boolean locked = lock.tryLock(); // withinc 1 sec, can't get lock 
 	    System.out.println("Lock acquired: " + locked);
-//		IntStream.range(0,1000).forEach(i->es.submit(this::increment));
+	    es.shutdown();
 	}
 
 }
