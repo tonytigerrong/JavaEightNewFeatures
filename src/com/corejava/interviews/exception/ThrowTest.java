@@ -13,6 +13,7 @@ public class ThrowTest {
 		try{
 			a();
 		}catch(Exception e){
+			//if any execption is propergated to this method, will print the following:
 			System.out.println("exception catched");
 			e.printStackTrace(); 
 		}
@@ -25,18 +26,23 @@ public class ThrowTest {
 		c();
 	}
 	public static void c() throws ArithmeticException{
-		// unchecked exception can be propergated up forward.
-//		int i = 1/0; //ArithmeticException
-		throw new ArithmeticException();
+		
 		/**
-		 * Throw keyword 
-		 * if checked exception by throw will not propergated.
+		 * Un-Checked Exception: Can be propergated up forward by throw.
+		 * 		Eg. int i = 1/0; //ArithmeticException
 		 */
-//		try{
-//			throw new IOException(); // throw a checked exception
-//		}catch(IOException e){
-//			e.printStackTrace();
-//		}
+		throw new ArithmeticException();
+		
+		/**
+		 * Checked Exception: Can't be propergated up forward by throw,
+		 *                    But if apply throws exception chain in method signature, it will be progergated.
+		 * If you un-comment this line, complier should force you either of the following: 
+		 * (1) add "throws IOException" in call chain, up forward
+		 * (2) add "try/catch", wrap the "throw new IOException"                 
+		 */
+//		throw new IOException(); 
+		
+		
 		
 	}
 }

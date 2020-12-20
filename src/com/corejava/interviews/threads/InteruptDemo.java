@@ -17,6 +17,9 @@ public class InteruptDemo {
 			e.printStackTrace();
 		}
 		/*
+		 * Thread.interrupt() :
+		 * 		stop waiting or sleeping status of Thread, in the mean time throw InterrupteException
+		 * 
 		 *  if thread is waiting or sleeping and being interrupted,
 		 *   will throw interruptexception and stop waiting or sleeping status
 		 */
@@ -34,6 +37,7 @@ class MyFuns{
 	private boolean isBlock = true;
 	public synchronized void setIsBlock(boolean isBlock){
 		this.isBlock = isBlock;
+		System.out.println("isBlock is set to '"+isBlock+"'");
 		notify();
 	}
 	public synchronized void method1() {

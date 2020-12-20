@@ -19,7 +19,7 @@ public class IteratorDemo {
 		    // iterator don't have add method for insert element
 			it.remove(); //in loop scope, just iterator has been removed an element. this remove will effect to source(strList) after the loop
 		}
-		
+		// will not print anything, since the array is removed all elements.
 		strList.stream().forEach(System.out::println);
 	}
 	

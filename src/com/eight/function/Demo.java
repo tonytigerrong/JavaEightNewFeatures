@@ -8,14 +8,17 @@ public class Demo {
 	
 	public static void main(String[] args){
 		// 1st: input; 2nd: return
-		Function<String, Integer> func = x->x.length();
-		Integer length = func.apply("abcde");
+		Function<String, Integer> func = x->x.length(); //define a Function method by Lambda syntax
+		Integer length = func.apply("abcde");           //instance.apply to invode the method
 		System.out.println(length);
 		
 		//for function chain
 		Function<Integer,Integer> func2 = x->x*x;
 		Integer i = func.andThen(func2).apply("abcde");
-		//1:func.apply('abcde') 2: func2 3: func2
+		
+		/* 1:func.apply('abcde') 2: func2 3: func2
+		 * 
+		 */
 		i = func.andThen(func2.andThen(func2)).apply("abcde");
 		System.out.println(i);
 		

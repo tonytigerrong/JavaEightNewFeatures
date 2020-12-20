@@ -19,9 +19,14 @@ public class ReentrantLockDemo {
 		es.submit(run);	 // thread is runing and lock is using now for 1 sec
 		System.out.println("Locked: " + lock.isLocked()); // should be true
 	    System.out.println("Held by me: " + lock.isHeldByCurrentThread()); // so should be false
+	    // non block
 	    boolean locked = lock.tryLock(); // withinc 1 sec, can't get lock 
-	    System.out.println("Lock acquired: " + locked);
+	    // non block
+	    System.out.println("Lock acquired 1st: " + locked);
+	    // non block
 	    es.shutdown();
+	    // non block
+	    System.out.println("Lock acquired 2nd: " + locked);
 	}
 
 }
@@ -34,16 +39,18 @@ class DataDemo{
 	}
 	void increment(){
 		lock.lock();
+		System.out.println("ReentrantLock is locked");
 		try{
 			count++;
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}finally{
 			lock.unlock();
+			System.out.println("ReentrantLock is un-locked");
 		}
 		
 	}

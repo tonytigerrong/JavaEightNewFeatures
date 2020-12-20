@@ -7,7 +7,7 @@ public class RunnableJoinTest {
 		Thread t2 = new Thread(new MyRunnable(),"t2");
 		Thread t3 = new Thread(new MyRunnable(),"t3");
 		t1.start();
-		t1.join(1000);
+		t1.join(1000); // wait t1 finished or exceed 1 second, then execute the next statement
 		t2.start();
 		t2.join(2000);
 		t3.start();

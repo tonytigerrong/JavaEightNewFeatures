@@ -4,6 +4,12 @@ import java.io.IOException;
 
 public class ChildClass extends ParentClass {
 
+	/**
+	 * (1) if parent method don't have any exception declaration in signature
+	 * 		override method can either declarer un-checked exception or no exception
+	 * (2) if parent method have exception declaration in signature
+	 * 		override method can only declare eight same level or sub level exception of parent
+	 */
 	@Override
 	public String needOverriding() 
 			// throws IOException // can't declare checked exception if parent function without any exception declaration

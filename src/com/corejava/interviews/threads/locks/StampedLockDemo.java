@@ -49,6 +49,12 @@ class Data2 {
 		/*
 		 * tryOptimisticRead might get invalid (0) lock(stamp),but return immediataly ReadWriteLock don't
 		 * tryOptimisticRead has to using lock.validate(stamp) to validate if the lock is true
+		 * 
+		 * different between ReadWriteLock and StampedLock
+		 * 	1. When you want to get ReaWriteLock's read lock and write lock is locked, the read lock getting action will 
+		 * 		block and until write lock is released
+		 *  2. When you want to get Stamped read lock and write lock is locked, the read lock getting action will 
+		 *  	not block, and return immediately.
 		 */
 		long stamp = lock.tryOptimisticRead(); 
 		/*

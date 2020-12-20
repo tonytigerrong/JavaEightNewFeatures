@@ -15,7 +15,7 @@ public class ListIteratorDemo {
 		 * but you can't add and remove source collection(list) via listiterator in same listiterator 
 		 */
 		ListIterator<String> listIt = strList.listIterator(); // clone from collection to generate a listiterator
-		
+		// pointer of listiterator move from 1st to last
 		while(listIt.hasNext()){
 			System.out.println(listIt.next());
 			/**
@@ -24,18 +24,22 @@ public class ListIteratorDemo {
 			listIt.add("Tony1");
 //			listIt.remove(); // can't apply add and remove to same listiterator
 		}
-		System.out.println();
+		System.out.println("Pointer move from last to 1st");
 		while(listIt.hasPrevious()){
 //			listIt.remove(); //can't apply add and remove to same listiterator
 			System.out.println(listIt.previous());
 			
 		}
-		System.out.println();
+		System.out.println("Create 2nd pointer of listiterator, traverse from 1st to last");
 		
 		ListIterator<String> listIt2 = strList.listIterator();
 		while(listIt2.hasNext()){
 			System.out.println(listIt2.next());
 			listIt2.remove();
+		}
+		System.out.println("Should print nothing");
+		while(listIt2.hasPrevious()) {
+			System.out.println(listIt2.previous());
 		}
 	}
 	

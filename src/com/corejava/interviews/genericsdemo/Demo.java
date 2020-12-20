@@ -17,16 +17,18 @@ public class Demo {
 		
 		List<Father> _fathers = new ArrayList<Father>();
 		_fathers.add(father);
-//		_fathers.add(child); // error
+		_fathers.add(child); 
 		
 		List<Grandpa> _grandpas = new ArrayList<Grandpa>();
 		_grandpas.add(grandpa);
+		_grandpas.add(father);
+		_grandpas.add(child);
 		
 		List<? extends Father> afterFather = _fathers;
-//		afterFather = _childs; // error
+		afterFather = _childs; 
 		
 		List<? super Father> beforeFather = _grandpas;
-//		beforeFather.add(_fathers); // error
+		beforeFather.add(father); // error, allow instance higher than or equal to Father
 		
 		
 		

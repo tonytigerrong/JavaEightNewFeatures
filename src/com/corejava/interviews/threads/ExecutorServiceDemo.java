@@ -12,10 +12,15 @@ public class ExecutorServiceDemo {
 	public static void main(String[] args) {
 		ExecutorServiceDemo demo = new ExecutorServiceDemo();
 		demo.test1();
+		System.out.println("=================");
 		demo.test2();
+		System.out.println("=================");
 		demo.test3();
 	}
-	
+	/**
+	 * execute Callable via ExecutorService's submit
+	 * store thread handler into a Future for future control
+	 */
 	public void test3(){
 		Callable<Integer> callableT1 = ()->{
 			try{
@@ -34,13 +39,15 @@ public class ExecutorServiceDemo {
 		}
 		es.shutdown();
 	}
-	
+	/**
+	 * Execute Runnable thread via ExecutorService's submit
+	 */
 	public void test2(){
 		Runnable runnable1 = () -> {
 			try{
-				System.out.println("Start CallabeThread[" + Thread.currentThread().getName() + "]");
+				System.out.println("Start RunnabeThread[" + Thread.currentThread().getName() + "]");
 				Thread.sleep(5000);
-				System.out.println("End   CallabeThread[" + Thread.currentThread().getName() + "]");
+				System.out.println("End   RunnabeThread[" + Thread.currentThread().getName() + "]");
 			}catch(InterruptedException e){
 				e.printStackTrace();
 			}
@@ -54,6 +61,9 @@ public class ExecutorServiceDemo {
 		
 		es.shutdown();
 	}
+	/**
+	 * Store both Callable and Runnable threads into Future array
+	 */
 	public void test1(){
 		ExecutorService es = Executors.newFixedThreadPool(4);
 		Future[] fus = new Future[4];

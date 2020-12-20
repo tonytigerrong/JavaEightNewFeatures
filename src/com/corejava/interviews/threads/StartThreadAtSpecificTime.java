@@ -22,7 +22,8 @@ public class StartThreadAtSpecificTime {
 //		System.out.println(test());
 
 		/**
-		 * need start task at 2:30
+		 * Option 1: Using Timer
+		 * need start task in 2 seconds
 		 * Timer
 		 */
 		Instant in1 = Instant.now();
@@ -38,6 +39,8 @@ public class StartThreadAtSpecificTime {
 		timer.schedule(new MyTask(timer), waitTime);
 		
 		/**
+		 * Option 2: Using Scheduled Executor Service
+		 * start thread in 2 seconds
 		 * ExecutorService scheduled task
 		 */
 		Callable<Integer> callableThread = ()->{
